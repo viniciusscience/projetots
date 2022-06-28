@@ -1,0 +1,49 @@
+<div class="box">
+  <p>Novos Clientes</p>
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
+    <input
+      formControlName="nome"
+      placeholder="Nome"
+      type="text"
+      maxlength="64"
+    />
+    <input formControlName="cpf" placeholder="Cpf" type="text" maxlength="14" />
+    <input
+      formControlName="email"
+      placeholder="Email"
+      type="email"
+      maxlength="32"
+    />
+    <input
+      formControlName="aniver"
+      placeholder="Data de Nascimento"
+      type="date"
+    />
+    <button type="submit" [disabled]="!form.valid">Cadastrar</button>
+  </form>
+  <hr />
+  <h2>Meus Clientes</h2>
+  <table class="tabelinha">
+    <tr>
+      <th>Nome</th>
+      <th>Data de Nascimento</th>
+      <th>Idade</th>
+      <th>CPF</th>
+      <th>CPF Válido</th>
+      <th>E-mail</th>
+      <th>Ações</th>
+    </tr>
+    <tr *ngFor="let cliente of list">
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.aniver | date: "dd/MM/yyyy" }}</td>
+      <td>{{ cliente.idade }}</td>
+      <td>{{ cliente.documento }}</td>
+      <td>{{ cliente.documentoValido }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>
+        <button class="botao1" (click)="editar(cliente)">Editar</button>
+        <button class="botao" (click)="apagar(cliente)">Apagar</button>
+      </td>
+    </tr>
+  </table>
+</div>

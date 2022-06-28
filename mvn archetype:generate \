@@ -1,0 +1,16 @@
+  mvn archetype:generate \
+    -DarchetypeGroupId=br.com.edward.archetypes \
+    -DarchetypeArtifactId=simple-maven-archetype \
+    -DarchetypeVersion=1.0.0 \
+    -DgroupId=br.com.triersistemas.patolino \
+    -DartifactId=patolino\
+    -Dversion=0.0.1-SNAPSHOT
+
+    implementar validacao de cpf e cnpj
+    usar mesmo algoritmos
+    verificar numeros repetidos
+    com ou sem mascara 
+    usar lambda
+    verficar diade com base na data de nascimento
+    saida formatada em caixa ex :
+
