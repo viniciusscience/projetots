@@ -1,0 +1,48 @@
+<div class="box">
+  <p>Novos Fornecedores</p>
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
+    <input
+      formControlName="nome"
+      placeholder="Nome"
+      type="text"
+      maxlength="64"
+    />
+    <input
+      formControlName="cnpj"
+      placeholder="Cnpj"
+      type="text"
+      maxlength="18"
+    />
+    <input
+      formControlName="aniver"
+      placeholder="Data de Nascimento"
+      type="date"
+    />
+    <button type="submit" [disabled]="!form.valid">Cadastrar</button>
+  </form>
+  <div class="fornecedores">
+    <button (click)="cegonha()">Cegonha</button>
+    <h2>Fornecedores</h2>
+    <table class="tabelinha">
+      <tr>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>CNPJ Válido</th>
+        <th>Data de Nascimento</th>
+        <th>Idade</th>
+        <th>Ações</th>
+      </tr>
+      <tr *ngFor="let item of fornecedores">
+        <td>{{ item.nome }}</td>
+        <td>{{ item.documento }}</td>
+        <td>{{ item.documentoValido }}</td>
+        <td>{{ item.aniver }}</td>
+        <td>{{ item.idade }}</td>
+        <td>
+          <button>Editar</button>
+          <button (click)="excluir(item)">Excluir</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
